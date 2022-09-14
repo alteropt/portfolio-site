@@ -1,0 +1,403 @@
+@import './fonts';
+@import './normalize';
+@import './variables';
+
+.header {
+    &__inner {
+        padding: 32px 0;
+        border-bottom: 1px solid $gray;
+    }
+
+    &__navigation {
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+                font-weight: bold;
+                color: $gray;
+                transition: color .2s ease;
+
+                &:hover, &.active {
+                    color: $black;
+                }
+            }
+        }
+    }
+}
+
+.home {
+    &__inner {
+        padding: 40px 0 105px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 50px;
+    }
+
+    &__name {
+        width: 20%;
+    }
+
+    &__special {
+        width: 33%;
+    }
+
+    &__language {
+        display: flex;
+        align-items: center;
+        transform: rotate(-90deg);
+        transform-origin: left bottom;
+        width: 0%;
+        
+        span {
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 18.75px;
+            cursor: pointer;
+        }
+    }
+
+    &__ru {
+        margin-right: 10px;
+        position: relative;
+        color: $gray;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 80%;
+            width: 2px;
+            background: $gray;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.about {
+    text-align: center;
+    background: #f6f6f6;
+
+    &__inner {
+        padding: 120px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__title {
+        margin-bottom: 18px;
+    }
+
+    &__text {
+        max-width: 50%;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        display: block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.skills {
+    text-align: center;
+
+    &__inner {
+        padding: 91px 0 110px;
+    }
+
+    &__title {
+        margin-bottom: 70px;
+    }
+
+    &__subtitle {
+        margin-bottom: 84px;
+    }
+
+    &__skills {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        flex-wrap: wrap;
+    }
+
+    &__skill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 24%;
+        flex-wrap: wrap;
+
+        img {
+            display: block;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__name {
+        font-size: 14px;
+        line-height: 16.41px;
+        color: $gray;
+        font-weight: bold;
+        margin-bottom: 40px;
+    }
+
+    &__stars {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            display: block;
+            margin-right: 9px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.portfolio {
+    background-color: #f6f6f6;
+    text-align: center;
+
+    &__inner {
+        padding: 113px 0 96px;
+    }
+
+    &__title {
+        margin-bottom: 47px;
+    }
+
+    &__works {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__work {
+        margin-bottom: 99px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 45px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: underline;
+        }
+    }
+}
+
+.footer {
+    text-align: center;
+
+    &__inner {
+        padding: 114px 0 123px;
+    }
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    &__subtitle {
+        margin-bottom: 30px;
+    }
+
+    &__btn {
+        margin-bottom: 85px;
+    }
+
+    &__social {
+        margin-bottom: 45px;
+        display: flex;
+        justify-content: center;
+
+        a {
+            display: block;
+            margin-right: 60px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        img {
+            display: block;
+        }
+    }
+
+    &__like {
+        color: $gray;
+        font-size: 14px;
+        line-height: 16.41px;
+    }
+}
+
+@media(max-width: 768px) {
+    .skills {
+        &__inner {
+            padding-bottom: 18px;
+        }
+
+        &__skill {
+            width: 49%;
+            margin-bottom: 81px;
+        }
+    }
+}
+
+@media(max-width: 426px) {
+    .header {
+        position: absolute;
+        right: 0;
+
+        &__navigation {
+            display: none;
+        }
+
+        &__inner {
+            border-bottom: 0;
+            padding-bottom: 0;
+            padding-top: 68px;
+            
+        }
+
+        .burger {
+            display: block;
+        }
+    }
+
+    .home {
+        &__inner {
+            padding: 68px 0 83px;
+        }
+
+        &__language {
+            display: none;
+        }
+
+        &__info {
+            display: block;
+            margin-bottom: 37px;
+        }
+
+        &__name {
+            width: 50%;
+            margin-bottom: 23px;
+        }
+
+        &__special {
+            width: 100%;
+        }
+    }
+
+    .about {
+        &__inner {
+            padding: 81px 0 76px;
+        }
+
+        &__text {
+            max-width: 100%;
+        }
+
+        &__title {
+            margin-bottom: 30px;
+        }
+    }
+
+    .skills {
+        &__inner {
+            padding: 83px 0 99px;
+        }
+
+        &__title {
+            margin-bottom: 50px;
+        }
+
+        &__subtitle {
+            margin-bottom: 71px;
+        }
+
+        &__skill {
+            width: 100%;
+            margin-bottom: 81px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .portfolio {
+        &__inner {
+            padding: 81px 0;
+        }
+
+        &__title {
+            margin-bottom: 65px;
+        }
+
+        &__work {
+            margin-bottom: 78px;
+
+            img {
+                margin-bottom: 33px;
+            }
+        }
+    }
+
+    .footer {
+        &__inner {
+            padding: 82px 0 90px;
+        }
+
+        &__title {
+            margin-bottom: 27px;
+        }
+
+        &__subtitle {
+            margin-bottom: 40px;
+        }
+
+        &__btn {
+            display: flex;
+            margin-bottom: 48px;
+        }
+
+        &__social {
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 48px;
+
+            a {
+                margin: 0;
+            }
+        }
+    }
+}
