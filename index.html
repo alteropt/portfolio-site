@@ -8,28 +8,37 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
+            <div class="burger" id="burger">
+                <span></span>
+            </div>
             <div class="header__inner">
-                <div class="burger">
-                    <span></span>
+                <div class="header__language">
+                    <span class="header__ru" id="ru">RU</span>
+                    <span class="header__eng active" id="en">ENG</span>
                 </div>
                 <nav class="header__navigation">
                     <ul>
                         <a href="#" class="active">
-                            <li>Home</li>
+                            <li data--language="en">Home</li>
+                            <li data--language="ru" class="not-active">Главная</li>
                         </a>
                         <a href="#">
-                            <li>About me</li>
+                            <li data--language="en">About me</li>
+                            <li data--language="ru" class="not-active">Обо мне</li>
                         </a>
                         <a href="#">
-                            <li>Skills</li>
+                            <li data--language="en">Skills</li>
+                            <li data--language="ru" class="not-active">Навыки</li>
                         </a>
                         <a href="#">
-                            <li>Portfolio</li>
+                            <li data--language="en">Portfolio</li>
+                            <li data--language="ru" class="not-active">Портфолио</li>
                         </a>
                         <a href="#">
-                            <li>Contacts</li>
+                            <li data--language="en">Contacts</li>
+                            <li data--language="ru" class="not-active">Контакты</li>
                         </a>
                     </ul>
                 </nav>
@@ -41,11 +50,13 @@
         <div class="container">
             <div class="home__inner">
                 <div class="home__info">
-                    <h2 class="home__name">Denis Novik</h2>
-                    <h5 class="home__special">UX | UI designer <br> 24 years old, Minsk</h5>
+                    <h2 class="home__name" data--language="en">Denis Novik</h2>
+                    <h2 class="home__name not-active" data--language="ru">Денис Новик</h2>
+                    <h5 class="home__special" data--language="en">UX | UI designer <br> 24 years old, Minsk</h5>
+                    <h5 class="home__special not-active" data--language="ru">UX | UI дизайнер <br> 24 года, Минск</h5>
                     <div class="home__language">
-                        <span class="home__ru">RU</span>
-                        <span class="home__eng">ENG</span>
+                        <span class="home__ru" id="ru">RU</span>
+                        <span class="home__eng active" id="en">ENG</span>
                     </div>
                 </div>
                 <picture>
@@ -59,10 +70,14 @@
     <div class="about">
         <div class="container">
             <div class="about__inner">
-                <h3 class="about__title">About me</h3>
-                <h5 class="about__text">Hi, I'm Denis – UX/UI designer from Minsk. I'm interested in design and everything connected with it.</h5>
-                <h5 class="about__text">I'm studying at courses "Web and mobile design interfaces" in IT-Academy.</h5>
-                <h5 class="about__text">Ready to implement excellent projects with wonderful people.</h5>
+                <h3 class="about__title" data--language="en">About me</h3>
+                <h3 class="about__title not-active" data--language="ru">Обо мне</h3>
+                <h5 class="about__text" data--language="en">Hi, I'm Denis – UX/UI designer from Minsk. I'm interested in design and everything connected with it.</h5>
+                <h5 class="about__text not-active" data--language="ru">Здравствуйте, Меня зовут Денис. Я UX/UI дизайнер из Минска. Я занимаюсь дизайном и всем, что с ним связано.</h5>
+                <h5 class="about__text" data--language="en">I'm studying at courses "Web and mobile design interfaces" in IT-Academy.</h5>
+                <h5 class="about__text not-active" data--language="ru">Я обучаюсь на курсе "Веб и мобайл дизайн-интерфейсы" в IT-Academy.</h5>
+                <h5 class="about__text" data--language="en">Ready to implement excellent projects with wonderful people.</h5>
+                <h5 class="about__text not-active" data--language="ru">Готов реализовать интересные проекты с замечательными людьми.</h5>
             </div>
         </div>
     </div>
@@ -70,8 +85,10 @@
     <div class="skills">
         <div class="container">
             <div class="skills__inner">
-                <h3 class="skills__title">Skills</h3>
-                <h5 class="skills__subtitle">I work in such programs as</h5>
+                <h3 class="skills__title" data--language="en">Skills</h3>
+                <h3 class="skills__title not-active" data--language="ru">Навыки</h3>
+                <h5 class="skills__subtitle" data--language="en">I work in such programs as</h5>
+                <h5 class="skills__subtitle not-active" data--language="ru">Я работаю в таких программах как</h5>
                 <div class="skills__skills">
                     <div class="skills__skill">
                         <img src="./img/ps.jpg" alt="photoshop">
@@ -125,19 +142,23 @@
     <div class="portfolio">
         <div class="container">
             <div class="portfolio__inner">
-                <h3 class="portfolio__title">Portfolio</h3>
+                <h3 class="portfolio__title" data--language="en">Portfolio</h3>
+                <h3 class="portfolio__title not-active" data--language="ru">Портфолио</h3>
                 <div class="portfolio__works">
                     <div class="portfolio__work">
                         <img src="./img/portfolio-works/1.jpg">
-                        <a href="#"><h5>Online fashion store - Homepage</h5></a>
+                        <a href="#" data--language="en"><h5>Online fashion store - Homepage</h5></a>
+                        <a href="#" data--language="ru" class="not-active"><h5>Онлайн магазин моды - Главная страница</h5></a>
                     </div>
                     <div class="portfolio__work">
                         <img src="./img/portfolio-works/2.jpg">
-                        <a href="#"><h5>Reebok Store - Concept</h5></a>
+                        <a href="#" data--language="en"><h5>Reebok Store - Concept</h5></a>
+                        <a href="#" data--language="ru" class="not-active"><h5>Магазин Reebok - Концепт</h5></a>
                     </div>
                     <div class="portfolio__work">
                         <img src="./img/portfolio-works/3.jpg">
-                        <a href="#"><h5>Reebok Store - Concept</h5></a>
+                        <a href="#" data--language="en"><h5>Reebok Store - Concept</h5></a>
+                        <a href="#" data--language="ru" class="not-active"><h5>Магазин Reebok - Концепт</h5></a>
                     </div>
                 </div>
             </div>
@@ -147,16 +168,20 @@
     <footer class="footer">
         <div class="container">
             <div class="footer__inner">
-                <h3 class="footer__title">Contacts</h3>
-                <h5 class="footer__subtitle">Want to know more or just chat? <br> You are welcome!</h5>
-                <a href="#" class="footer__btn btn">Send message</a>
+                <h3 class="footer__title" data--language="en">Contacts</h3>
+                <h3 class="footer__title not-active" data--language="ru">Контакты</h3>
+                <h5 class="footer__subtitle" data--language="en">Want to know more or just chat? <br> You are welcome!</h5>
+                <h5 class="footer__subtitle not-active" data--language="ru">Хотите познакомиться или просто пообщаться? <br> Пишите!</h5>
+                <a href="#" class="footer__btn btn" data--language="en">Send message</a>
+                <a href="#" class="footer__btn btn not-active" data--language="ru">Отправить сообщение</a>
                 <div class="footer__social">
                     <a href="#"><img src="./img/linkedin.png" alt="linkedin"></a>
                     <a href="#"><img src="./img/instagram.png" alt="instagram"></a>
                     <a href="#"><img src="./img/behance.png" alt="behance"></a>
                     <a href="#"><img src="./img/dribble.png" alt="dribble"></a>
                 </div>
-                <p class="footer__like">Like me on <br> LinkedIn, Instagram, Behance, Dribble</p>
+                <p class="footer__like" data--language="en">Like me on <br> LinkedIn, Instagram, Behance, Dribble</p>
+                <p class="footer__like not-active" data--language="ru">Подписывайтесь на меня в <br> LinkedIn, Instagram, Behance, Dribble</p>
             </div>
         </div>
     </footer>

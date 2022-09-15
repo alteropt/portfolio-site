@@ -25,6 +25,38 @@
             }
         }
     }
+
+    &__language {
+        display: none;
+        align-items: center;
+        transform: rotate(90deg);
+        transform-origin: right bottom;
+        
+        span {
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 40px;
+            color: $gray;
+        }
+    }
+
+    &__ru {
+        margin-right: 10px;
+        position: relative;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 80%;
+            width: 2px;
+            background: $gray;
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
 }
 
 .home {
@@ -61,13 +93,13 @@
             font-size: 17px;
             line-height: 18.75px;
             cursor: pointer;
+            color: $gray;
         }
     }
 
     &__ru {
         margin-right: 10px;
         position: relative;
-        color: $gray;
 
         &::after {
             content: '';
@@ -274,22 +306,66 @@
 
 @media(max-width: 426px) {
     .header {
-        position: absolute;
-        right: 0;
+        
+        &__inner {
+            display: none;
+        }
+        
+        &.active {
+            position: absolute;   
+            right: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #fff;
+            overflow-y: scroll;
+
+            .header__inner {
+                display: block;
+            }
+        }
 
         &__navigation {
-            display: none;
+            ul {
+                flex-direction: column;
+                align-items: flex-start;
+                
+                a {
+                    font-size: 34px;
+                    line-height: 40px;
+                    margin-bottom: 68px;
+                    display: inline-block;
+                    cursor: none;
+
+                    &:hover {
+                        color: $gray
+                    }
+
+                    &:last-child {
+                        margin-bottom: 57px;
+                    }
+                }
+            }
         }
 
         &__inner {
             border-bottom: 0;
             padding-bottom: 0;
             padding-top: 68px;
-            
         }
 
         .burger {
             display: block;
+            position: absolute;
+            top: 68px;
+            right: 30px;
+        }
+
+        &__language {
+            display: flex;
+            position: absolute;
+            bottom: 57px;
+            right: 70px;
         }
     }
 
@@ -300,6 +376,11 @@
 
         &__language {
             display: none;
+
+            span {
+                font-size: 34px;
+                line-height: 40px;
+            }
         }
 
         &__info {

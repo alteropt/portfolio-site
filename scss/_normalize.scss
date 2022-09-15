@@ -12,6 +12,10 @@ body {
     font-size: 18px;
     line-height: 21px;
     font-weight: 400;
+
+    &.hoverflow {
+        overflow: hidden;
+    }
 }
 
 a {
@@ -80,6 +84,7 @@ h5 {
             width: 100%;
             height: 4px;
             background: $black;
+            transition: transform .2s linear
         }
 
         &::before {
@@ -91,6 +96,24 @@ h5 {
         }
     }
 }
+
+.burger.active {
+    span {
+        background-color: transparent;
+
+        &::before {
+            transform: rotate(45deg);
+            transform-origin: center center;
+            top: 8px;
+        }
+        
+        &::after {
+            transform: rotate(-45deg);
+            transform-origin: center center;
+        }
+    }
+}
+
 
 .btn {
     padding: 10px 30px;
@@ -106,3 +129,16 @@ h5 {
     border-radius: 30px;
     box-shadow: 0px 4px 20px 0px rgba(141, 160, 255, 0.22);
 }
+
+*[data--language="ru"].not-active, *[data--language="en"].not-active {
+    display: none;
+}
+
+#ru.active {
+    color: $black;
+}
+
+#en.active {
+    color: $black;
+}
+
