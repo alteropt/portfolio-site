@@ -405,7 +405,7 @@ h5 {
     align-items: center;
   }
   .header.fixed .header__inner {
-    padding-top: 68px;
+    padding: 68px 0;
   }
   .header.active {
     width: 100%;
