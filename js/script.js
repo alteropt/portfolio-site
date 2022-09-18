@@ -51,12 +51,6 @@ $(function() {
     const portfolioOffset = $('#portfolio').offset().top
     const contactsOffset = $('#contacts').offset().top
 
-    console.log('home ' + homeOffset);
-    console.log('about ' + aboutOffset);
-    console.log('skills ' + skillsOffset);
-    console.log('portfolio ' + portfolioOffset);
-    console.log('contacts ' + contactsOffset);
-    
     if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
         $('[data-block]').removeClass('active')
         $('[data-block="#home"]').addClass('active')
@@ -69,13 +63,24 @@ $(function() {
         $('[data-block]').removeClass('active')
         $('[data-block="#skills"]').addClass('active')
     }
-    if(scrollPos >= portfolioOffset && scrollPos < contactsOffset - 200) {
-        $('[data-block]').removeClass('active')
-        $('[data-block="#portfolio"]').addClass('active')
-    }
-    if(scrollPos >= contactsOffset) {
-        $('[data-block]').removeClass('active')
-        $('[data-block="#contacts"]').addClass('active')
+    if(innerWidth > 425) {
+        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#portfolio"]').addClass('active')
+        }
+        if(scrollPos >= contactsOffset) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#contacts"]').addClass('active')
+        }
+    } else if(innerWidth <= 425) {
+        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-100) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#portfolio"]').addClass('active')
+        }
+        if(scrollPos >= contactsOffset-100) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#contacts"]').addClass('active')
+        }
     }
 
 
@@ -105,11 +110,11 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         } else if(innerWidth <= 425) {
-            if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-100) {
+            if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-200) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#portfolio"]').addClass('active')
             }
-            if(scrollPos >= contactsOffset-100) {
+            if(scrollPos >= contactsOffset-200) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#contacts"]').addClass('active')
             }
@@ -124,13 +129,12 @@ $(function() {
         const blockId = $(this).data('block')
         const blockOffset = $(blockId).offset().top
 
-        console.log(blockOffset);
         header.removeClass('active')
         burger.removeClass('active')
         body.removeClass('hoverflow')
 
         $('html, body').animate({
-            scrollTop: blockOffset + 1
+            scrollTop: blockOffset + 20
         }, 1000)
     })
 })
