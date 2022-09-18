@@ -3,6 +3,20 @@
 @import './variables';
 
 .header {
+    &.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: #fff;
+        z-index: 1000;
+        
+        .header__inner {
+            border-bottom: none;
+            padding: 12px 0;
+        }
+    }
+
     &__inner {
         padding: 32px 0;
         border-bottom: 1px solid $gray;
@@ -305,23 +319,36 @@
 }
 
 @media(max-width: 426px) {
-    .header {
-        
+    .header {        
         &__inner {
             display: none;
         }
+
+        &.fixed {
+            position: fixed;
+
+            .burger {
+                background-color: #fff;
+                padding: 25px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .header__inner {
+                padding-top: 68px;
+            }
+        }
         
         &.active {
-            position: absolute;   
-            right: 0;
-            height: 100%;
-            top: 0;
-            left: 0;
+            width: 100%;
+            height: 100vh;
             background: #fff;
-            overflow-y: scroll;
 
             .header__inner {
                 display: block;
+                overflow-y: scroll;
             }
         }
 
@@ -333,7 +360,7 @@
                 a {
                     font-size: 34px;
                     line-height: 40px;
-                    margin-bottom: 68px;
+                    margin-bottom: 30px;
                     display: inline-block;
                     cursor: none;
 
@@ -342,7 +369,7 @@
                     }
 
                     &:last-child {
-                        margin-bottom: 57px;
+                        margin-bottom: 27px;
                     }
                 }
             }
@@ -358,7 +385,7 @@
             display: block;
             position: absolute;
             top: 68px;
-            right: 30px;
+            right: 40px;
         }
 
         &__language {
@@ -478,6 +505,22 @@
 
             a {
                 margin: 0;
+            }
+        }
+    }
+}
+
+@media(max-height: 385px) {
+    .header {
+        &__navigation {
+            ul {
+                a {
+                    margin-bottom: 15px;
+
+                    &:last-child {
+                        margin-bottom: 15px;
+                    }
+                }
             }
         }
     }

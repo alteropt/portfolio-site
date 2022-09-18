@@ -1,55 +1,118 @@
-window.addEventListener('load', function() {
-    const body = document.querySelector('body')
+$(function() {
+    const body = $('body')
 
-    const header = document.querySelector('#header')
-    const burger = document.querySelector('#burger')
+    const header = $('#header')
+    const burger = $('#burger')
 
-    const en = document.querySelectorAll('#en')
-    const ru = document.querySelectorAll('#ru')
-    const enText = document.querySelectorAll('*[data--language="en"]')
-    const ruText = document.querySelectorAll('*[data--language="ru"]')
+    const en = $('*#en')
+    const ru = $('*#ru')
+    const enText = $('*[data--language="en"]')
+    const ruText = $('*[data--language="ru"]')
 
-    burger.addEventListener('click', () => {
-        burger.classList.toggle('active')
-        header.classList.toggle('active')
-        body.classList.toggle('hoverflow')
+    burger.on('click', () => {
+        burger.toggleClass('active')
+        header.toggleClass('active')
+        body.toggleClass('hoverflow')
     })
 
-    en.forEach(el => {
-        el.addEventListener('click', () => {
-            en.forEach(el => {
-                el.classList.add('active')
-            })
-
-            ru.forEach(el => {
-                el.classList.remove('active')
-            })
-
-            enText.forEach(el => {
-                el.classList.remove('not-active')
-            })
-            ruText.forEach(el => {
-                el.classList.add('not-active')
-            })
-        })
+    en.on('click', () => {
+        en.addClass('active')
+        ru.removeClass('active')
+        enText.removeClass('not-active')
+        ruText.addClass('not-active')
     })
     
-    ru.forEach(el => {
-        el.addEventListener('click', () => {
-            en.forEach(el => {
-                el.classList.remove('active')
-            })
-            
-            ru.forEach(el => {
-                el.classList.add('active')
-            })
-            
-            ruText.forEach(el => {
-                el.classList.remove('not-active')
-            })
-            enText.forEach(el => {
-                el.classList.add('not-active')
-            })
-        })
+    ru.on('click', () => {
+        ru.addClass('active')
+        en.removeClass('active')
+        ruText.removeClass('not-active')
+        enText.addClass('not-active')
+    })
+
+    function checkScroll(scrollPos) {
+        if (scrollPos === 0) {
+            header.removeClass('fixed')
+        }
+        if (scrollPos > 100 && innerWidth > 425) {
+            header.addClass('fixed')
+        }        
+        if (scrollY > 0 && innerWidth <= 425) {
+            header.addClass('fixed')
+        }
+    }
+
+    const scrollPos = $(window).scrollTop()
+
+    checkScroll(scrollPos)
+    
+    const homeOffset = $('#home').offset().top
+    const aboutOffset = $('#about').offset().top
+    const skillsOffset = $('#skills').offset().top
+    const portfolioOffset = $('#portfolio').offset().top
+    const contactsOffset = $('#contacts').offset().top
+    
+    if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
+        $('[data-block]').removeClass('active')
+        $('[data-block="#home"]').addClass('active')
+    }
+    if(scrollPos >= aboutOffset && scrollPos < skillsOffset) {
+        $('[data-block]').removeClass('active')
+        $('[data-block="#about"]').addClass('active')
+    }
+    if(scrollPos >= skillsOffset && scrollPos < portfolioOffset) {
+        $('[data-block]').removeClass('active')
+        $('[data-block="#skills"]').addClass('active')
+    }
+    if(scrollPos >= portfolioOffset && scrollPos < contactsOffset - 200) {
+        $('[data-block]').removeClass('active')
+        $('[data-block="#portfolio"]').addClass('active')
+    }
+    if(scrollPos >= contactsOffset-200) {
+        $('[data-block]').removeClass('active')
+        $('[data-block="#contacts"]').addClass('active')
+    }
+
+
+    $(window).on('scroll resize', () => {
+        const scrollPos = $(this).scrollTop()
+
+        checkScroll(scrollPos)
+        if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#home"]').addClass('active')
+        }
+        if(scrollPos >= aboutOffset && scrollPos < skillsOffset) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#about"]').addClass('active')
+        }
+        if(scrollPos >= skillsOffset && scrollPos < portfolioOffset) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#skills"]').addClass('active')
+        }
+        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset - 200) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#portfolio"]').addClass('active')
+        }
+        if(scrollPos >= contactsOffset-200) {
+            $('[data-block]').removeClass('active')
+            $('[data-block="#contacts"]').addClass('active')
+        }
+    })
+
+    $('[data-block]').on('click', function(event) {
+        event.preventDefault();
+        $('[data-block]').removeClass('active')
+        $(this).addClass('active')
+
+        const blockId = $(this).data('block')
+        const blockOffset = $(blockId).offset().top
+
+        header.removeClass('active')
+        burger.removeClass('active')
+        body.removeClass('hoverflow')
+
+        $('html, body').animate({
+            scrollTop: blockOffset + 30
+        }, 1000)
     })
 })

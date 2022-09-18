@@ -20,23 +20,23 @@
                 </div>
                 <nav class="header__navigation">
                     <ul>
-                        <a href="#" class="active">
+                        <a href="#" class="active" data-block="#home">
                             <li data--language="en">Home</li>
                             <li data--language="ru" class="not-active">Главная</li>
                         </a>
-                        <a href="#">
+                        <a href="#" data-block="#about">
                             <li data--language="en">About me</li>
                             <li data--language="ru" class="not-active">Обо мне</li>
                         </a>
-                        <a href="#">
+                        <a href="#" data-block="#skills">
                             <li data--language="en">Skills</li>
                             <li data--language="ru" class="not-active">Навыки</li>
                         </a>
-                        <a href="#">
+                        <a href="#" data-block="#portfolio">
                             <li data--language="en">Portfolio</li>
                             <li data--language="ru" class="not-active">Портфолио</li>
                         </a>
-                        <a href="#">
+                        <a href="#" data-block="#contacts">
                             <li data--language="en">Contacts</li>
                             <li data--language="ru" class="not-active">Контакты</li>
                         </a>
@@ -46,7 +46,7 @@
         </div>
     </header>
     
-    <div class="home">
+    <div class="home" id="home">
         <div class="container">
             <div class="home__inner">
                 <div class="home__info">
@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="about">
+    <div class="about" id="about">
         <div class="container">
             <div class="about__inner">
                 <h3 class="about__title" data--language="en">About me</h3>
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    <div class="skills">
+    <div class="skills" id="skills">
         <div class="container">
             <div class="skills__inner">
                 <h3 class="skills__title" data--language="en">Skills</h3>
@@ -139,7 +139,7 @@
         </div>
     </div>
 
-    <div class="portfolio">
+    <div class="portfolio" id="portfolio">
         <div class="container">
             <div class="portfolio__inner">
                 <h3 class="portfolio__title" data--language="en">Portfolio</h3>
@@ -165,7 +165,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id="contacts">
         <div class="container">
             <div class="footer__inner">
                 <h3 class="footer__title" data--language="en">Contacts</h3>
@@ -186,6 +186,7 @@
         </div>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </body>
 </html>
