@@ -119,6 +119,7 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         }
+        console.log(scrollPos-(innerHeight-150), contactsOffset);
     })
 
     $('[data-block]').on('click', function(event) {
