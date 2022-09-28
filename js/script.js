@@ -86,7 +86,6 @@ $(function() {
 
     $(window).on('scroll resize', () => {
         const scrollPos = $(this).scrollTop()
-
         checkScroll(scrollPos)
         if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
             $('[data-block]').removeClass('active')
@@ -110,7 +109,7 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         } else if(innerWidth <= 425) {
-            if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-200) {
+            if(scrollPos >= portfolioOffset && scrollPos-(innerHeight-150) < contactsOffset) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#portfolio"]').addClass('active')
             }
@@ -119,7 +118,6 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         }
-        console.log(scrollPos-(innerHeight-150), contactsOffset);
     })
 
     $('[data-block]').on('click', function(event) {
