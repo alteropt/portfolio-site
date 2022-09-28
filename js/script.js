@@ -77,7 +77,7 @@ $(function() {
             $('[data-block]').removeClass('active')
             $('[data-block="#portfolio"]').addClass('active')
         }
-        if(scrollPos-(innerHeight-100) >= contactsOffset) {
+        if(scrollPos-(innerHeight-150) >= contactsOffset) {
             $('[data-block]').removeClass('active')
             $('[data-block="#contacts"]').addClass('active')
         }
