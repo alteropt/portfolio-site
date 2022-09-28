@@ -131,7 +131,7 @@ h5 {
   color: #070707;
 }
 
-.header.fixed {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -187,6 +187,9 @@ h5 {
   transform: translateY(-50%);
 }
 
+.home {
+  margin-top: 80px;
+}
 .home__inner {
   padding: 40px 0 105px;
   display: flex;
@@ -392,9 +395,6 @@ h5 {
   .header__inner {
     display: none;
   }
-  .header.fixed {
-    position: fixed;
-  }
   .header.fixed .burger {
     background-color: #fff;
     padding: 25px;
@@ -449,8 +449,11 @@ h5 {
     bottom: 57px;
     right: 70px;
   }
+  .home {
+    padding-top: 0;
+  }
   .home__inner {
-    padding: 68px 0 83px;
+    padding: 0 0 83px;
   }
   .home__language {
     display: none;

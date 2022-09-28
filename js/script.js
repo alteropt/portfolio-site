@@ -45,11 +45,11 @@ $(function() {
 
     checkScroll(scrollPos)
     
-    const homeOffset = $('#home').offset().top
-    const aboutOffset = $('#about').offset().top
-    const skillsOffset = $('#skills').offset().top
-    const portfolioOffset = $('#portfolio').offset().top
-    const contactsOffset = $('#contacts').offset().top
+    const homeOffset = $('#home').offset().top - 80
+    const aboutOffset = $('#about').offset().top - 80
+    const skillsOffset = $('#skills').offset().top - 80
+    const portfolioOffset = $('#portfolio').offset().top - 80
+    const contactsOffset = $('#contacts').offset().top - 80
 
     if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
         $('[data-block]').removeClass('active')
@@ -77,7 +77,7 @@ $(function() {
             $('[data-block]').removeClass('active')
             $('[data-block="#portfolio"]').addClass('active')
         }
-        if(scrollPos >= contactsOffset-100) {
+        if(scrollPos-innerHeight >= contactsOffset) {
             $('[data-block]').removeClass('active')
             $('[data-block="#contacts"]').addClass('active')
         }
@@ -134,7 +134,7 @@ $(function() {
         body.removeClass('hoverflow')
 
         $('html, body').animate({
-            scrollTop: blockOffset + 20
+            scrollTop: blockOffset
         }, 1000)
     })
 })

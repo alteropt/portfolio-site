@@ -3,14 +3,14 @@
 @import './variables';
 
 .header {
-    &.fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: #fff;
-        z-index: 1000;
-        
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1000;
+    
+    &.fixed {    
         .header__inner {
             border-bottom: none;
         }
@@ -73,6 +73,7 @@
 }
 
 .home {
+    margin-top: 80px;
     &__inner {
         padding: 40px 0 105px;
         display: flex;
@@ -324,7 +325,6 @@
         }
 
         &.fixed {
-            position: fixed;
 
             .burger {
                 background-color: #fff;
@@ -396,8 +396,9 @@
     }
 
     .home {
+        padding-top: 0;
         &__inner {
-            padding: 68px 0 83px;
+            padding: 0 0 83px;
         }
 
         &__language {
