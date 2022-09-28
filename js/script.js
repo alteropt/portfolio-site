@@ -73,7 +73,7 @@ $(function() {
             $('[data-block="#contacts"]').addClass('active')
         }
     } else if(innerWidth <= 425) {
-        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-100) {
+        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-150) {
             $('[data-block]').removeClass('active')
             $('[data-block="#portfolio"]').addClass('active')
         }
