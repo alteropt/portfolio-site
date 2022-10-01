@@ -72,6 +72,10 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         } else if(innerWidth <= 425) {
+            console.log(`Scroll Pos ${scrollPos}`);
+            console.log(`Portfolio Offset ${portfolioOffset}`);
+            console.log(`innerHeight ${innerHeight}`);
+            console.log(`contacts offset ${contactsOffset}`);
             if(scrollPos >= portfolioOffset && scrollPos-(innerHeight-150) < contactsOffset) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#portfolio"]').addClass('active')
