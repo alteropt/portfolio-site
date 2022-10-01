@@ -29,6 +29,15 @@ $(function() {
         enText.addClass('not-active')
     })
 
+    
+    const scrollPos = $(window).scrollTop()
+    
+    const homeOffset = $('#home').offset().top - 80
+    const aboutOffset = $('#about').offset().top - 80
+    const skillsOffset = $('#skills').offset().top - 80
+    const portfolioOffset = $('#portfolio').offset().top - 80
+    const contactsOffset = $('#contacts').offset().top - 80
+    
     function checkScroll(scrollPos) {
         if (scrollPos === 0) {
             header.removeClass('fixed')
@@ -40,53 +49,7 @@ $(function() {
             header.addClass('fixed')
         }
     }
-
-    const scrollPos = $(window).scrollTop()
-
-    checkScroll(scrollPos)
-    
-    const homeOffset = $('#home').offset().top - 80
-    const aboutOffset = $('#about').offset().top - 80
-    const skillsOffset = $('#skills').offset().top - 80
-    const portfolioOffset = $('#portfolio').offset().top - 80
-    const contactsOffset = $('#contacts').offset().top - 80
-
-    if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
-        $('[data-block]').removeClass('active')
-        $('[data-block="#home"]').addClass('active')
-    }
-    if(scrollPos >= aboutOffset && scrollPos < skillsOffset) {
-        $('[data-block]').removeClass('active')
-        $('[data-block="#about"]').addClass('active')
-    }
-    if(scrollPos >= skillsOffset && scrollPos < portfolioOffset) {
-        $('[data-block]').removeClass('active')
-        $('[data-block="#skills"]').addClass('active')
-    }
-    if(innerWidth > 425) {
-        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset) {
-            $('[data-block]').removeClass('active')
-            $('[data-block="#portfolio"]').addClass('active')
-        }
-        if(scrollPos >= contactsOffset) {
-            $('[data-block]').removeClass('active')
-            $('[data-block="#contacts"]').addClass('active')
-        }
-    } else if(innerWidth <= 425) {
-        if(scrollPos >= portfolioOffset && scrollPos < contactsOffset-150) {
-            $('[data-block]').removeClass('active')
-            $('[data-block="#portfolio"]').addClass('active')
-        }
-        if(scrollPos-(innerHeight-150) >= contactsOffset) {
-            $('[data-block]').removeClass('active')
-            $('[data-block="#contacts"]').addClass('active')
-        }
-    }
-
-
-    $(window).on('scroll resize', () => {
-        const scrollPos = $(this).scrollTop()
-        checkScroll(scrollPos)
+    const checkBlock = (scrollPos, homeOffset, aboutOffset, skillsOffset, portfolioOffset, contactsOffset) => {
         if(scrollPos >= homeOffset && scrollPos < aboutOffset) {
             $('[data-block]').removeClass('active')
             $('[data-block="#home"]').addClass('active')
@@ -118,6 +81,15 @@ $(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         }
+    }
+
+    checkScroll(scrollPos)
+    checkBlock(homeOffset, aboutOffset, skillsOffset, portfolioOffset, contactsOffset)
+
+    $(window).on('scroll resize', () => {
+        const scrollPos = $(this).scrollTop()
+        checkScroll(scrollPos)
+        checkBlock(scrollPos, homeOffset, aboutOffset, skillsOffset, portfolioOffset, contactsOffset)
     })
 
     $('[data-block]').on('click', function(event) {
