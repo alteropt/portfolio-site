@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
     const body = $('body')
 
     const header = $('#header')
