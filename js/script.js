@@ -72,11 +72,11 @@ $(document).ready(function() {
                 $('[data-block="#contacts"]').addClass('active')
             }
         } else if(innerWidth <= 425) {
-            if(scrollPos >= portfolioOffset && scrollPos < contactsOffset) {
+            if(scrollPos >= portfolioOffset && scrollPos+(innerHeight/1.5) < contactsOffset) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#portfolio"]').addClass('active')
             }
-            if(scrollPos >= contactsOffset) {
+            if(scrollPos+(innerHeight/1.5) >= contactsOffset) {
                 $('[data-block]').removeClass('active')
                 $('[data-block="#contacts"]').addClass('active')
             }
